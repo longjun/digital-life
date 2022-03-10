@@ -38,6 +38,7 @@ jobs:
       
       - name: GET UP
         run: |
-          source venv/bin/activate
-          python main.py ${{ secrets.G_T }} ${{ github.repository }} ${{ github.event.inputs.issue_number }} --message "${{ github.event.inputs.message }}"
+          echo "${{ secrets.G_T }} ${{ github.repository }} ${{ github.event.inputs.issue_number }} ${{ github.event.inputs.message }}"
+          #source venv/bin/activate
+          #python main.py ${{ secrets.G_T }} ${{ github.repository }} ${{ github.event.inputs.issue_number }} --message "${{ github.event.inputs.message }}"
 
