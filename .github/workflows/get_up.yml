@@ -3,11 +3,11 @@ name: GET UP
 on:
   workflow_dispatch:
     inputs:
-      issue_number:
-        description: 'github issue number'
       message:
         description: 'message'
         required: false
+      issue_number:
+        description: 'issue number'
 
 jobs:
   sync:
@@ -39,5 +39,5 @@ jobs:
       - name: GET UP
         run: |
           source venv/bin/activate
-          python main.py ${{ secrets.G_T }} ${{ github.repository }} ${{ github.event.inputs.issue_number }} --message ": ${{ github.event.inputs.message }}"
+          python main.py ${{ secrets.G_T }} ${{ github.repository }} ${{ github.event.inputs.issue_number }} --message "${{ github.event.inputs.message }}"
 
